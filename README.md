@@ -2,7 +2,7 @@
 
 Interactive portfolio demo from the Waterford AI Hackathon — Cursor MCP exercises tied to intern work on RHOAIENG-72206.
 
-**Live site:** https://zaidkh10.github.io/mcp-hackathon-journey/
+**Live site:** https://0-Zaid-0.github.io/mcp-hackathon-journey/
 
 ## What's inside
 

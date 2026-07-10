@@ -1,0 +1,106 @@
+HOW TO BUILD YOUR OWN (same interactive map demo)
+================================================
+
+If you want to build the same kind of interactive hackathon portfolio —
+a side-scrolling adventure map filled with YOUR real MCP data — just:
+
+1. Open Cursor Agent
+2. Make sure your MCP servers are connected (Jira, Calendar, code search, Slack, etc.)
+3. Copy everything below the line and paste it into Cursor
+4. Wait for it to pull your data and generate the site in a github-pages/ folder
+
+No form to fill in. No link required. The agent uses your MCP tools and chat history.
+
+================================================
+COPY FROM HERE ↓
+================================================
+
+Build me an interactive portfolio: a side-scrolling adventure map game in vanilla HTML/CSS/JS, filled with MY real data from MCP.
+
+Do NOT ask me questions or make me fill in a form. Use my connected MCP servers and this chat session to discover everything, then build.
+
+## Step 1 — Gather my data via MCP
+
+Use whatever MCP tools I have connected:
+
+- **Calendar** — today's meetings, hackathon/workshop events, schedule with times and links
+- **Jira / Atlassian** — my assigned issues, status, project; find my main active ticket (key, title, link, description, next steps)
+- **Code search (Sourcebot or similar)** — search repos relevant to my main ticket; top 5 files, what each does, patterns to reuse, key discovery
+- **Slack** — if connected, note it in MCP Setup stage
+
+Also use this Cursor chat history for: prompts I typed, tools the agent called, fixes made (e.g. MCP config issues).
+
+Infer my name, email, org/team, event name + date, squad/project name, and main ticket from MCP responses.
+
+If an MCP is unavailable, show that honestly in the stage modal — do not invent data.
+
+## Step 2 — Build the site
+
+### index.html — adventure map
+
+**Layout & chrome**
+- Fixed top bar: org/team name, event name, my email if visible from MCP
+- Fixed footer: copyright line, squad/project text
+- Start screen (full overlay): org name, event line, title "Cursor MCP Hackathon Journey", subtitle about walking through MCP workshop stages, my name + main ticket, "Begin Journey" button
+- Game view hidden until Begin Journey is clicked
+
+**World**
+- Side-scrolling map ~3200px wide, sky gradient, animated clouds, hills
+- Ground strip + path
+- START sign, 6 stage nodes evenly spaced, FINISH flag at end
+- Player sprite at bottom: simple character with optional hat from assets/logo.png, name label under player (my first name uppercase)
+- Player walks left→right with bob + leg animation when completing stages
+- World pans to follow player
+
+**6 stages (this order)**
+1. MCP Setup — tools connected, what I fixed/did, chat proof of MCP diagnostics
+2. Calendar + Jira — prompts used, calendar summary, Jira grouped by status, my ticket found; button link to daily-brief.html
+3. Code Search — my code search prompt, top 5 files, key discovery tied to my ticket; img assets/stage-3-proof.png if exists, else inline MCP results
+4. Cross-tool Dashboard — what I built (brief, dashboard, this map), chat proof
+5. Chat Proof — evidence every exercise used real MCP calls
+6. Standup Ready — copy-ready Yesterday/Today/Blockers from my data
+
+**Stage interaction**
+- Stages locked until previous completed; current stage has red glow pulse
+- Click node to open modal — do NOT auto-open stage 1 on load
+- Modal: icon, title, badges (Exercise, tools, time), body sections, Cursor-style proof panel (dark box, header "Cursor Agent · …", user prompt, action rows, green result box)
+- Footer buttons: Close + "Complete & Walk →" (last stage: "Finish Quest → 🏁")
+- On complete: mark node done with ✓, unlock next, walk player, confetti + sparks + flash + banner + player jump; toast message
+- Final stage: victory overlay with trophy, quest complete copy, Start Over button; ongoing confetti on victory screen
+
+**HUD**
+- Left panel: org name, "Workshop stage X / 6", progress bar
+- Right panel: my name, main ticket key in accent color
+
+**Styling**
+- Dark theme, accent color #ee0000 or infer from org
+- Red Hat Display or similar Google Font + monospace for code
+
+### daily-brief.html
+- Same top bar branding
+- Back link to index.html
+- Hero: my name, squad, date, active ticket, blockers
+- Main ticket card: key link, status pill, title, scope, numbered next steps, upstream link if in Jira
+- Grid: other open Jira issues, today's schedule with links, action items, standup script (Yesterday/Today/Blockers)
+- Footer: generated from live MCP data
+
+### Output folder: github-pages/
+- index.html
+- daily-brief.html
+- README.md (hackathon demo description + placeholder GitHub Pages URL)
+- .nojekyll
+- assets/ (logo.png, stage-3-proof.png optional)
+
+## Tech rules
+- Vanilla HTML/CSS/JS only — no build step, no frameworks
+- All stage content in a JS STAGES array
+- Works offline once generated (except font links)
+
+## Finish
+Give 3 lines: create public GitHub repo → push github-pages/ to main → enable Pages. Do not push unless I ask.
+
+Use real MCP data only — not placeholders.
+
+================================================
+COPY TO HERE ↑
+================================================
